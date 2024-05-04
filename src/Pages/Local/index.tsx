@@ -1,21 +1,15 @@
-import React from "react";
-import "./style.scss";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CardTemplate from "../../components/CardTemplate";
 import LocalIcon from "../../img/location-dot-solid.svg";
+import "./style.scss";
 
-import { useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
 import { useEffect } from "react";
-import { getNews, getnews } from "../../redux/slices/connectSlice";
-import axios from "axios";
-type Props = {};
-
-function Local({}: Props) {
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getnews } from "../../redux/slices/connectSlice";
+import { RootState } from "../../redux/store/store";
+function Local() {
+  useAppSelector((state: RootState) => state.connect);
   const news = useAppSelector((state) => state.connect.news);
-  const [data, setdata] = useState([]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -30,7 +24,7 @@ function Local({}: Props) {
         <h1>Local</h1>
       </div>
       <div className="cards ">
-        {news.map((elem) => {
+        {news.map((elem: any) => {
           return elem.category === "local" && <CardTemplate elem={elem} />;
         })}
       </div>

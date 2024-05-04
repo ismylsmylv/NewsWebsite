@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Sun from "../../img/weatherTransparent.png";
 import axios from "axios";
-type Props = {};
 
-function Welcome({}: Props) {
+function Welcome() {
   const [weather, setweather] = useState(0);
   const [weatherType, setweatherType] = useState("");
   const [weatherImg, setweatherImg] = useState("");

@@ -1,22 +1,24 @@
-import React from "react";
-import "./style.scss";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CardTemplate from "../../components/CardTemplate";
 import Earth from "../../img/earth-americas-solid.svg";
 import { RootState } from "../../redux/store/store";
-
-import { useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
+import "./style.scss";
 import { useEffect } from "react";
-import { getNews, getnews } from "../../redux/slices/connectSlice";
-import axios from "axios";
-type Props = {};
-
-function World({}: Props) {
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getnews } from "../../redux/slices/connectSlice";
+interface Elem {
+  id: string;
+  title: string;
+  category: string;
+  topic: string;
+  likes: string;
+  dislikes: string;
+  views: string;
+  image: string;
+}
+function World() {
+  useAppSelector((state: RootState) => state.connect);
   const news = useAppSelector((state) => state.connect.news);
-  const [data, setdata] = useState([]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -31,7 +33,7 @@ function World({}: Props) {
         <h1>World</h1>
       </div>
       <div className="cards ">
-        {news.map((elem) => {
+        {news.map((elem: Elem & any) => {
           return (
             (elem.category === "world" || elem.category === "topStory") && (
               <CardTemplate elem={elem} />

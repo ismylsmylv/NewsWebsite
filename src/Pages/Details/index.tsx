@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ReactNode, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
@@ -7,20 +8,25 @@ import ThumbDownFill from "../../img/thumbs-down-solid.svg";
 import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
 import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
-import { dislike, like, getId } from "../../redux/slices/connectSlice";
+import { dislike, getId, like } from "../../redux/slices/connectSlice";
+import { RootState } from "../../redux/store/store";
 import "./style.scss";
-
-import { getnews } from "../../redux/slices/connectSlice";
-type Props = { elem: object[] };
-
-function Details({}: Props) {
+interface News {
+  image: string | undefined;
+  text: ReactNode;
+  id: string;
+  likes: string;
+  dislikes: string;
+  date: number;
+  authors: string;
+  title: string;
+  views: string;
+}
+function Details() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
-  let idNews = useAppSelector((state) => state.connect.idNews);
-  const [data, setdata] = useState([]);
+  useAppSelector((state: RootState) => state.connect);
+  const idNews: News = useAppSelector((state: any) => state.connect.idNews);
 
   useEffect(() => {
     dispatch(getId(id));
@@ -32,7 +38,7 @@ function Details({}: Props) {
   const [disliked, setdisliked] = useState(false);
   let formattedDate;
   {
-    const unixTimestamp = idNews.date;
+    const unixTimestamp: number = idNews.date;
     const milliseconds = unixTimestamp * 1000;
     const dateObject = new Date(milliseconds);
     const year = dateObject.getFullYear();
@@ -67,7 +73,7 @@ function Details({}: Props) {
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(like(idNews));
-                let liked = idNews.likes;
+                const liked = idNews.likes;
                 setlikes(liked + 1);
                 setliked(true);
                 setdisliked(false);
@@ -81,7 +87,7 @@ function Details({}: Props) {
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch(dislike(idNews));
-                let disliked = idNews.dislikes;
+                const disliked = idNews.dislikes as any;
                 setdislikes(disliked - 1);
                 setdisliked(true);
                 setliked(false);

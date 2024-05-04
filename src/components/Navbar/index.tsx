@@ -10,16 +10,12 @@ import "./style.scss";
 import { useEffect } from "react";
 
 import { getnews } from "../../redux/slices/connectSlice";
-type Props = {};
 
-function Navbar({}: Props) {
+function Navbar() {
   const [checked, setchecked] = useState(false);
   const [empty, setempty] = useState("");
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
+  useAppSelector((state: RootState) => state.connect);
   let backnews = useAppSelector((state) => state.connect.backnews);
-  const [data, setdata] = useState([]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {

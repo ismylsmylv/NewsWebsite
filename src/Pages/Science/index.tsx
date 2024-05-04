@@ -1,19 +1,15 @@
-import React from "react";
-import "./style.scss";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from "react";
 import CardTemplate from "../../components/CardTemplate";
 import FlaskS from "../../img/flask-solid.svg";
-import { useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
-import { useEffect } from "react";
-import { getNews, getnews } from "../../redux/slices/connectSlice";
-type Props = {};
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getnews } from "../../redux/slices/connectSlice";
+import { RootState } from "../../redux/store/store";
+import "./style.scss";
 
-function Science({}: Props) {
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
+function Science() {
+  useAppSelector((state: RootState) => state.connect);
   const news = useAppSelector((state) => state.connect.news);
-  const [data, setdata] = useState([]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -28,7 +24,7 @@ function Science({}: Props) {
         <h1>Science</h1>
       </div>
       <div className="cards ">
-        {news.map((elem) => {
+        {news.map((elem: any) => {
           return elem.category === "science" && <CardTemplate elem={elem} />;
         })}
       </div>

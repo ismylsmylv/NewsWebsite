@@ -1,8 +1,7 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import "./style.scss";
 import ChevronRight from "../../img/chevron-right-solid.svg";
-import { Link, useNavigate } from "react-router-dom";
+import "./style.scss";
 type Props = { news: object[] };
 
 function Beyond({ news }: Props) {

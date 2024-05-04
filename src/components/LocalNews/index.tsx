@@ -4,8 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 import ChevronRight from "../../img/chevron-right-solid green.svg";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
-
 function LocalNews({ news }: Props) {
   let formattedDate;
   let localCount: number = 0;

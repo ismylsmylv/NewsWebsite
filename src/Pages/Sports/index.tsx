@@ -1,19 +1,15 @@
-import React from "react";
-import "./style.scss";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from "react";
 import CardTemplate from "../../components/CardTemplate";
 import Ball from "../../img/table-tennis-paddle-ball-solid.svg";
-import { useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
-import { useEffect } from "react";
-import { getNews, getnews } from "../../redux/slices/connectSlice";
-type Props = {};
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getnews } from "../../redux/slices/connectSlice";
+import "./style.scss";
+import { RootState } from "../../redux/store/store";
 
-function Sport({}: Props) {
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
+function Sport() {
+  useAppSelector((state: RootState) => state.connect);
   const news = useAppSelector((state) => state.connect.news);
-  const [data, setdata] = useState([]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -28,7 +24,7 @@ function Sport({}: Props) {
         <h1>Sports</h1>
       </div>
       <div className="cards ">
-        {news.map((elem) => {
+        {news.map((elem: any) => {
           return elem.category === "sports" && <CardTemplate elem={elem} />;
         })}
       </div>

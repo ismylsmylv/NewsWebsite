@@ -1,20 +1,15 @@
-import React from "react";
-import "./style.scss";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CardTemplate from "../../components/CardTemplate";
 import Flask from "../../img/heart-pulse-solid.svg";
+import "./style.scss";
 
-import { useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
 import { useEffect } from "react";
-import { getNews, getnews } from "../../redux/slices/connectSlice";
-type Props = {};
-
-function Health({}: Props) {
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getnews } from "../../redux/slices/connectSlice";
+import { RootState } from "../../redux/store/store";
+function Health() {
+  useAppSelector((state: RootState) => state.connect);
   const news = useAppSelector((state) => state.connect.news);
-  const [data, setdata] = useState([]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -29,7 +24,7 @@ function Health({}: Props) {
         <h1>Health</h1>
       </div>
       <div className="cards ">
-        {news.map((elem) => {
+        {news.map((elem: any) => {
           return elem.category === "world" && <CardTemplate elem={elem} />;
         })}
       </div>

@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.scss";
-type Props = {};
 
-function ForYouPage({}: Props) {
+function ForYouPage() {
   return <div>ForYouPage</div>;
 }
 

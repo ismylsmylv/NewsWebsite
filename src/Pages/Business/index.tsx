@@ -1,19 +1,15 @@
-import React from "react";
-import "./style.scss";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from "react";
 import CardTemplate from "../../components/CardTemplate";
 import Charts from "../../img/scale-unbalanced-solid.svg";
-import { useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks/hooks";
-import { useEffect } from "react";
-import { getNews, getnews } from "../../redux/slices/connectSlice";
-type Props = {};
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { getnews } from "../../redux/slices/connectSlice";
+import { RootState } from "../../redux/store/store";
+import "./style.scss";
 
-function Business({}: Props) {
-  const { loading, error } = useAppSelector(
-    (state: RootState) => state.connect
-  );
+function Business() {
+  useAppSelector((state: RootState) => state.connect);
   const news = useAppSelector((state) => state.connect.news);
-  const [data, setdata] = useState([]);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -31,7 +27,7 @@ function Business({}: Props) {
         <h1>Business</h1>
       </div>
       <div className="cards ">
-        {news.map((elem) => {
+        {news.map((elem: any) => {
           return elem.category === "business" && <CardTemplate elem={elem} />;
         })}
       </div>
