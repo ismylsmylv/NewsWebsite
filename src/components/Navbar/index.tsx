@@ -158,7 +158,7 @@ function Navbar() {
         <NavLink
           to={"/"}
           className="link"
-          activeclassname="active"
+          activeClassName="active"
           style={{
             paddingBottom: "9px",
             color: "white",
