@@ -1,0 +1,303 @@
+.navbar {
+    background-color: #202124;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 900;
+
+    .upperNavbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 15px;
+
+        .logo {
+            h2 {
+                color: #E2E2E3;
+                font-weight: 500;
+            }
+        }
+
+
+        .searchBar,
+        .searchMobileBar {
+            background-color: #3C4043;
+            height: 45px;
+            width: 40%;
+            display: flex;
+            align-items: center;
+            // justify-content: space-between;
+            justify-content: space-around;
+            border: 1px solid transparent;
+            border-radius: 8px;
+
+            .icon {
+                padding: 10px;
+            }
+
+            input {
+                background-color: transparent;
+                height: 100%;
+                width: 90%;
+                outline: none;
+                transition: 300ms linear;
+                border: none;
+                color: white;
+                font-size: 16px;
+                font-weight: 500;
+
+                &:active {
+                    background-color: #363738;
+                    color: #3C4043;
+                }
+
+                &::placeholder {
+                    color: #B4B6B7;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+
+        }
+
+        .admin {
+            height: 50px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                height: 24px;
+                width: 24px;
+            }
+        }
+    }
+
+    .lowerNavbar {
+        display: flex;
+        width: 50%;
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: end;
+        padding-top: 15px;
+        flex-wrap: wrap;
+
+        button {
+            padding-bottom: 5px;
+            background-color: transparent;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            color: rgb(189, 193, 198) !important;
+            cursor: pointer;
+            line-height: 27px;
+            border: 4px solid transparent;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            margin: 0 5px;
+
+            &:active {
+                border: 4px solid rgb(138, 180, 248);
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                color: rgb(138, 180, 248) !important;
+            }
+
+            a:hover {
+                color: #fff !important;
+            }
+
+            a {
+                color: rgb(189, 193, 198) !important;
+
+                &:active {
+                    color: rgb(138, 180, 248) !important;
+                }
+            }
+        }
+    }
+}
+
+body {
+    position: relative;
+}
+
+
+
+@media (max-width:800px) {
+    .navMobile {
+        display: none;
+    }
+
+    .lowerNavbar,
+    .admin,
+    .searchBar {
+        display: none !important;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .navbar {
+        padding: 15px 0
+    }
+}
+
+@media (min-width:800px) {
+
+    .navMobile,
+    .navList {
+        display: none !important;
+    }
+}
+
+.navMobile {
+    // position: absolute;
+    // top: 10px;
+    // right: 10px;
+    // z-index: 100;
+    display: block;
+
+    button {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+}
+
+.navList {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: 300ms linear;
+
+    button {
+        padding-bottom: 5px;
+        background-color: transparent;
+        border: none;
+        font-size: 14px;
+        font-weight: 600;
+        font-size: 14px;
+        color: rgb(189, 193, 198) !important;
+        cursor: pointer;
+        line-height: 27px;
+        margin: 0 5px;
+        transition: 300ms linear;
+
+        &:active {
+            color: rgb(138, 180, 248) !important;
+        }
+
+        a:hover {
+            color: #fff !important;
+        }
+
+        a {
+            color: rgb(189, 193, 198) !important;
+
+            &:active {
+                color: rgb(138, 180, 248) !important;
+            }
+        }
+    }
+}
+
+.searchMobileBar {
+    background-color: #3C4043;
+    height: 36px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    justify-content: space-around;
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    .icon {
+        padding: 8px;
+    }
+
+    margin-bottom: 10px;
+
+    input {
+        background-color: transparent;
+        height: 100%;
+        width: 90%;
+        outline: none;
+        transition: 300ms linear;
+        border: none;
+        color: white;
+        font-size: 12px;
+        font-weight: 500;
+
+        &:active {
+            background-color: #363738;
+            color: #3C4043;
+        }
+
+        &::placeholder {
+            color: #B4B6B7;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+}
+
+.catBtns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link.active {
+    // padding-bottom: 9px;
+    border-bottom: 4px solid rgb(138, 180, 248);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: rgb(138, 180, 248) !important;
+    // font-weight: 600;
+}
+
+.link {
+    // transition: 100ms linear;
+    border: none;
+    border-bottom: 4px solid transparent
+}
+
+.searchBar {
+    position: relative;
+}
+
+.results {
+    position: absolute;
+    left: 0px;
+    top: 38px;
+    width: 100%;
+    background-color: #3C4043;
+
+
+}
+
+ul li {
+    list-style: none;
+    color: #E2E2E3;
+    padding: 5px;
+}

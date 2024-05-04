@@ -1,0 +1,61 @@
+.PicsForYou {
+    border-radius: 18px;
+    background-color: rgb(31, 31, 31);
+    padding: 16px;
+    margin: 0 auto;
+
+    .heading {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        color: rgb(165, 150, 207);
+        font-size: 20px;
+
+        img {
+            margin-left: 10px;
+            height: 15px;
+            width: 15px;
+        }
+    }
+
+    .line {
+        width: 100%;
+        height: 1px;
+        background-color: rgb(94, 94, 94);
+        margin: 16px 0 10px 0;
+    }
+
+    .cardPicks {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+            padding: 0;
+
+            .head {
+                color: rgb(227, 227, 227);
+                width: 100%;
+            }
+
+            .date {
+                color: rgb(196, 199, 197);
+                font-size: 12px;
+                margin: 10px 0;
+            }
+        }
+
+        .right {
+            padding: 0;
+            display: flex;
+            align-items: end;
+            justify-content: right;
+
+            img {
+                height: 64px;
+                width: 64px;
+                border-radius: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,116 @@
+.YourTopics {
+    margin-bottom: 20px;
+
+    .catHeading {
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+        font-size: 28px;
+        color: rgb(255, 255, 255);
+    }
+
+    .info {
+        color: rgb(189, 193, 198);
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .categories {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // gap: 10px;
+        justify-content: space-between;
+
+        .category {
+            border-radius: 18px;
+            background-color: rgb(31, 31, 31);
+            padding: 16px;
+            width: 32%;
+            margin-bottom: 20px;
+
+            .heading {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                color: rgb(255, 255, 255);
+                font-size: 20px;
+                cursor: pointer;
+
+                img {
+                    margin-left: 10px;
+                    height: 15px;
+                    width: 15px;
+                }
+            }
+
+            .line {
+                width: 100%;
+                height: 1px;
+                background-color: rgb(94, 94, 94);
+                margin: 16px 0 10px 0;
+            }
+
+            .card {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .left {
+                    padding: 0;
+
+                    .head {
+                        color: rgb(227, 227, 227);
+                        width: 100%;
+                    }
+
+                    .date {
+                        color: rgb(196, 199, 197);
+                        font-size: 12px;
+                        margin: 10px 0;
+                    }
+                }
+
+                .right {
+                    padding: 0;
+                    display: flex;
+                    align-items: end;
+                    justify-content: right;
+
+                    img {
+                        height: 64px;
+                        width: 64px;
+                        border-radius: 12px;
+                    }
+                }
+            }
+
+
+
+        }
+
+    }
+
+}
+
+@media (max-width:700px) {
+    .category {
+        width: 48% !important;
+    }
+
+    .YourTopics .categories .category .heading {
+        font-size: 14px !important;
+    }
+
+    .head {
+        font-size: 12px !important;
+    }
+
+    .YourTopics .categories .category .card .right img {
+        display: none;
+    }
+
+    .YourTopics .categories .category {
+        margin-bottom: 10px;
+    }
+}

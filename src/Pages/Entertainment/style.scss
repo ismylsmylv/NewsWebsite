@@ -1,0 +1,60 @@
+.Entertainment {
+    width: 40% !important;
+
+    .heading {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        padding: 20px 0;
+
+        h1 {
+            font-weight: 400;
+            font-size: 28px;
+        }
+
+        .imgCont {
+            height: 56px;
+            width: 56px;
+            border-radius: 50%;
+            background-color: #a22dd8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+
+            img {
+                height: 60%;
+                width: 60%;
+            }
+        }
+
+    }
+
+    .cards {
+        margin: 0 auto;
+        border-radius: 18px;
+        background-color: rgb(31, 31, 31);
+        color: rgb(255, 255, 255);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width:500px) {
+    .Entertainment {
+        width: 90% !important;
+
+    }
+}
+
+@media (max-width:800px) {
+    .Sport {
+        // width: 60% !important;
+
+    }
+}

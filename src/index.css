@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: "Open Sans", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+body {
+  background-color: #292a2d;
+  padding-bottom: 30px;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+@media (max-width: 500px) {
+  .imgCont {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  h1 {
+    font-size: 22px !important;
+  }
+  h2 {
+    font-size: 20px !important;
+  }
+}

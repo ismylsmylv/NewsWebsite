@@ -1,0 +1,114 @@
+.forYou {
+    margin-top: 20px !important;
+
+    .heading {
+        color: rgb(255, 255, 255);
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    img {
+        height: 15px;
+        width: 15px;
+    }
+
+    .info {
+        color: rgb(189, 193, 198);
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+
+
+    .cards {
+        padding: 16px;
+        border-radius: 18px;
+        background-color: rgb(31, 31, 31);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .left,
+        .right {
+            width: 50%;
+        }
+
+        .left .line:last-child,
+        .right .line:last-child {}
+
+        .line {
+            width: 100%;
+            height: 1px;
+            // background-color: rgb(94, 94, 94);
+            margin: 16px 0 16px 0;
+        }
+
+        .longLine {
+            width: 1px;
+            height: 330px;
+            background-color: rgb(94, 94, 94);
+            margin: 0 16px 0 16px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            .left {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: space-between;
+
+                .head {
+                    color: rgb(227, 227, 227);
+                    width: 100%;
+                }
+
+                .date {
+                    color: rgb(196, 199, 197);
+                    font-size: 12px;
+                    margin: 10px 0;
+                }
+            }
+
+            .right {
+                padding: 0;
+                display: flex;
+                align-items: end;
+                justify-content: right;
+
+                img {
+                    height: 64px;
+                    width: 64px;
+                    border-radius: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:500px) {
+    .container {
+        width: 90%;
+    }
+
+    .heading,
+    .catHeading {
+
+        font-size: 22px !important;
+    }
+
+    .info {
+        font-size: 12px !important
+    }
+
+    .longLine {
+        height: 600px !important;
+
+    }
+}

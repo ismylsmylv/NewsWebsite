@@ -1,0 +1,50 @@
+.feed {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .left {
+        width: 70%;
+        // border: 1px solid red;
+        border-radius: 18px;
+        background-color: rgb(31, 31, 31);
+        color: rgb(255, 255, 255);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        margin-right: 15px;
+    }
+
+    .right {
+        // border: 1px solid red;
+        width: 30%;
+
+        color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+}
+
+@media (max-width:800px) {
+    .feed {
+        display: block;
+        width: 90%;
+
+        .left,
+        .right {
+            margin: 0 auto;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+    }
+
+    .card {
+        // display: flex !important;
+    }
+
+}
