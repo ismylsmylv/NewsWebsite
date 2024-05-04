@@ -40,7 +40,7 @@ export const connectSlice = createSlice({
     getNews: (state) => {
       console.log(state.news);
     },
-    like: (state, action) => {
+    like: (action: any) => {
       console.log(action.payload);
       const updLike: number = action.payload.likes + 1;
       const obj = {
@@ -62,7 +62,7 @@ export const connectSlice = createSlice({
         obj
       );
     },
-    dislike: (state, action) => {
+    dislike: (action: any) => {
       console.log(action.payload);
       const updDislike: number = action.payload.dislikes - 1;
       const obj = {
@@ -84,7 +84,7 @@ export const connectSlice = createSlice({
         obj
       );
     },
-    deleteNews: (state, action) => {
+    deleteNews: (action: any) => {
       console.log(action.payload);
       axios.delete(
         "https://6576df5f197926adf62ca419.mockapi.io/news/" + action.payload

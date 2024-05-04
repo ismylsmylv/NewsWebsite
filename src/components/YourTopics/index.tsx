@@ -1,17 +1,26 @@
-import React from "react";
-import ChevronRight from "../../img/chevron-right-solid.svg";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import ChevronRight from "../../img/chevron-right-solid.svg";
 import "./style.scss";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-type Props = { news: object[] };
+type Props = { news: any[] };
 let entCount: number = 0;
 let techCount: number = 0;
 let sciCount: number = 0;
 let busCount: number = 0;
 let spoCount: number = 0;
 let helCount: number = 0;
-
+interface Elem {
+  date: any;
+  id: string;
+  title: string;
+  category: string;
+  topic: string;
+  likes: string;
+  dislikes: string;
+  views: string;
+  image: string;
+}
 function YourTopics({ news }: Props) {
   let formattedDate;
   const navigate = useNavigate();
@@ -30,7 +39,7 @@ function YourTopics({ news }: Props) {
           </Link>
 
           {news &&
-            news.map((elem) => {
+            news.map((elem: Elem) => {
               {
                 const unixTimestamp = elem.date;
                 const milliseconds = unixTimestamp * 1000;

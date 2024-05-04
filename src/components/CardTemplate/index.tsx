@@ -1,17 +1,29 @@
-import React, { useState } from "react";
-import "./style.scss";
-import ChevronRight from "../../img/chevron-right-solid.svg";
-import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
-import ThumbUpFill from "../../img/thumbs-up-solid.svg";
-import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
-import ThumbDownFill from "../../img/thumbs-down-solid.svg";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ReactNode, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import Views from "../../img/eye-regular.svg";
-import { like, dislike } from "../../redux/slices/connectSlice";
+import ThumbDownEmp from "../../img/thumbs-down-regular.svg";
+import ThumbDownFill from "../../img/thumbs-down-solid.svg";
+import ThumbUpEmp from "../../img/thumbs-up-regular.svg";
+import ThumbUpFill from "../../img/thumbs-up-solid.svg";
 import { useAppDispatch } from "../../redux/hooks/hooks";
-import { Link, useNavigate } from "react-router-dom";
-type Props = { elem: object[] };
-
+import { dislike, like } from "../../redux/slices/connectSlice";
+import "./style.scss";
+type Props = { elem: Elem };
+interface Elem {
+  date: any;
+  authors: ReactNode;
+  text: ReactNode;
+  id: string;
+  title: string;
+  category: string;
+  topic: string;
+  likes: string;
+  dislikes: string;
+  views: string;
+  image: string;
+}
 function CardTemplate({ elem }: Props) {
   const navigate = useNavigate();
   let formattedDate;
@@ -62,8 +74,8 @@ function CardTemplate({ elem }: Props) {
               className="views detail like"
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(like(elem));
-                let liked = elem.likes;
+                dispatch(like(elem as any));
+                const liked = elem.likes;
                 setlikes(liked + 1);
                 setliked(true);
                 setdisliked(false);
@@ -76,9 +88,9 @@ function CardTemplate({ elem }: Props) {
               className="likes detail dislike"
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch(dislike(elem));
-                let disliked = elem.dislikes;
-                setdislikes(disliked - 1);
+                dispatch(dislike(elem as any));
+                const disliked: any = elem.dislikes;
+                setdislikes((disliked - 1) as any);
                 setdisliked(true);
                 setliked(false);
               }}

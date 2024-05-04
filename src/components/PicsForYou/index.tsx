@@ -1,10 +1,19 @@
-import React from "react";
-import "./style.scss";
-import ChevronRight from "../../img/chevron-right-solid white.svg";
-import { v4 as uuidv4 } from "uuid";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate } from "react-router-dom";
-type Props = { news: object[] };
-
+import { v4 as uuidv4 } from "uuid";
+import "./style.scss";
+type Props = { news: any };
+interface Elem {
+  date: any;
+  id: string;
+  title: string;
+  category: string;
+  topic: string;
+  likes: string;
+  dislikes: string;
+  views: string;
+  image: string;
+}
 function PicsForYou({ news }: Props) {
   let formattedDate;
   let pickCount: number = 0;
@@ -21,7 +30,7 @@ function PicsForYou({ news }: Props) {
         Picks for you
       </div>
       {news &&
-        news.map((elem) => {
+        news.map((elem: Elem) => {
           {
             const unixTimestamp = elem.date;
             const milliseconds = unixTimestamp * 1000;

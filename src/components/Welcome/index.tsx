@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import "./style.scss";
-import Sun from "../../img/weatherTransparent.png";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
+import { useEffect, useState } from "react";
+import "./style.scss";
 
 function Welcome() {
   const [weather, setweather] = useState(0);
@@ -18,7 +18,6 @@ function Welcome() {
     });
   }, []);
 
-  const welcomeDate = new Date();
   const Months = {
     0: "January",
     1: "February",
@@ -42,11 +41,10 @@ function Welcome() {
     5: "Friday",
     6: "Saturday",
   };
-  function welcDateGet(date) {
+  function welcDateGet(date: Date | any) {
     const day = date.getDate();
     const dayName = Days[date.getDay()];
     const month = Months[date.getMonth()];
-    const year = date.getFullYear();
 
     return `${dayName}, ${month} ${day}`;
   }

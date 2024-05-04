@@ -26,7 +26,9 @@ function Details() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   useAppSelector((state: RootState) => state.connect);
-  const idNews: News = useAppSelector((state: any) => state.connect.idNews);
+  const idNews: News | any = useAppSelector(
+    (state: any) => state.connect.idNews
+  );
 
   useEffect(() => {
     dispatch(getId(id));

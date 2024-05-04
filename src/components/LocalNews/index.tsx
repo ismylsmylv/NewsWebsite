@@ -1,9 +1,20 @@
-import React from "react";
-import "./style.scss";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import ChevronRight from "../../img/chevron-right-solid green.svg";
-import { useNavigate } from "react-router-dom";
-
+import "./style.scss";
+type Props = { news: any };
+interface Elem {
+  date: any;
+  id: string;
+  title: string;
+  category: string;
+  topic: string;
+  likes: string;
+  dislikes: string;
+  views: string;
+  image: string;
+}
 function LocalNews({ news }: Props) {
   let formattedDate;
   let localCount: number = 0;
@@ -20,7 +31,7 @@ function LocalNews({ news }: Props) {
         Local News <img src={ChevronRight} alt="" />
       </div>
       {news &&
-        news.map((elem) => {
+        news.map((elem: Elem) => {
           {
             const unixTimestamp = elem.date;
             const milliseconds = unixTimestamp * 1000;

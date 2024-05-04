@@ -1,8 +1,7 @@
-import React from "react";
-import "./style.scss";
-import TopStories from "../TopStories";
 import LocalNews from "../LocalNews";
 import PicsForYou from "../PicsForYou";
+import TopStories from "../TopStories";
+import "./style.scss";
 type Props = { news: object[] };
 
 function Feed({ news }: Props) {

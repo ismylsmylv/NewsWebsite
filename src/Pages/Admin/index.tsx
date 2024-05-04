@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { useState } from "react";
-import { newsClass } from "../../assets/class/addNews";
 import { RootState } from "../../redux/store/store";
 import "./style.scss";
 import { useEffect } from "react";

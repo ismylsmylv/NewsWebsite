@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Bars from "../../img/bars-solid.svg";
@@ -6,22 +7,30 @@ import SearchIcon from "../../img/magnifying-glass-solid.svg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
 import { searchNews } from "../../redux/slices/connectSlice";
 import "./style.scss";
-
 import { useEffect } from "react";
-
 import { getnews } from "../../redux/slices/connectSlice";
-
+import { RootState } from "../../redux/store/store";
+interface Elem {
+  date: any;
+  id: string;
+  title: string;
+  category: string;
+  topic: string;
+  likes: string;
+  dislikes: string;
+  views: string;
+  image: string;
+}
 function Navbar() {
   const [checked, setchecked] = useState(false);
   const [empty, setempty] = useState("");
   useAppSelector((state: RootState) => state.connect);
-  let backnews = useAppSelector((state) => state.connect.backnews);
+  const backnews: any = useAppSelector((state) => state.connect.backnews);
 
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getnews());
   }, []);
-  console.log("backnews", backnews);
   return (
     <div className="navbar">
       <div className="upperNavbar">
@@ -46,7 +55,7 @@ function Navbar() {
           <ul className="results">
             {backnews &&
               empty != "" &&
-              backnews.map((elem) => {
+              backnews.map((elem: Elem) => {
                 return <li key={elem.id}>{elem.title}</li>;
               })}
           </ul>

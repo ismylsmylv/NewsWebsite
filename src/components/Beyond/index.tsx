@@ -1,15 +1,26 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import ChevronRight from "../../img/chevron-right-solid.svg";
 import "./style.scss";
+import { ReactNode } from "react";
 type Props = { news: object[] };
-
+interface Elem {
+  authors: ReactNode;
+  date: any;
+  id: string;
+  title: string;
+  category: string;
+  topic: string;
+  likes: string;
+  dislikes: string;
+  views: string;
+  image: string;
+}
 function Beyond({ news }: Props) {
   const navigate = useNavigate();
   let beyCount: number = 0;
 
-  const url =
-    "https://i0.wp.com/www.alphr.com/wp-content/uploads/2022/08/How-to-Find-Out-Where-a-Picture-Was-Taken-1.png?fit=1200%2C675&ssl=1";
   return (
     <div className="beyond container">
       <div className="heading">
@@ -18,7 +29,7 @@ function Beyond({ news }: Props) {
       </div>
       <div className="info">Notable stories and conversation starters</div>
       {news &&
-        news.map((elem) => {
+        news.map((elem: Elem | any) => {
           let formattedDate;
 
           {
